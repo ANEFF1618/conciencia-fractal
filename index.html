@@ -62,16 +62,21 @@
 
     .seal-emblem {
       box-shadow:
-        0 0 28px rgba(245, 176, 65, 0.32),
-        0 0 8px rgba(16, 185, 129, 0.25),
-        inset 0 0 12px rgba(253, 230, 138, 0.35);
+        0 0 32px rgba(245, 176, 65, 0.38),
+        0 0 12px rgba(16, 185, 129, 0.3),
+        inset 0 0 14px rgba(253, 230, 138, 0.4);
       transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.7s ease;
     }
     .seal-emblem:hover {
-      transform: scale(1.07) rotate(2deg);
+      transform: scale(1.06) rotate(2deg);
       box-shadow:
-        0 0 42px rgba(253, 230, 138, 0.55),
-        0 0 16px rgba(16, 185, 129, 0.4);
+        0 0 46px rgba(253, 230, 138, 0.6),
+        0 0 18px rgba(16, 185, 129, 0.45);
+    }
+
+    .seal-img {
+      image-rendering: -webkit-optimize-contrast;
+      filter: contrast(1.06) saturate(1.08);
     }
 
     .sacred-card {
@@ -209,21 +214,18 @@
 
   <canvas id="cosmos-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
-  <header class="fixed top-0 left-0 right-0 z-30 px-5 sm:px-8 py-4 flex items-center justify-between bg-gradient-to-b from-void/90 via-void/50 to-transparent pointer-events-none">
-    <a href="#" aria-label="Inicio Conciencia Fractal" class="pointer-events-auto flex items-center gap-3.5 group">
-      <div class="seal-emblem relative w-14 h-14 sm:w-16 sm:h-16 rounded-full p-[2px] bg-gradient-to-tr from-gold-deep via-gold-light to-emerald-glow overflow-hidden shrink-0">
+  <header class="fixed top-0 left-0 right-0 z-30 px-5 sm:px-8 py-4 flex items-center justify-between bg-gradient-to-b from-void/90 via-void/55 to-transparent pointer-events-none">
+    <a href="#" aria-label="Asociación Nacional de Educación Financiera Fractal" class="pointer-events-auto flex items-center gap-4 group max-w-[92vw]">
+      <div class="seal-emblem relative w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-tr from-gold-deep via-gold-light to-emerald-glow overflow-hidden shrink-0">
         <img
           src="logoANEFF.jpeg"
-          alt="Sello ANEFF"
-          class="w-full h-full object-cover rounded-full bg-obsidian"
+          alt="Logo Asociación Nacional de Educación Financiera Fractal"
+          class="seal-img w-full h-full object-cover rounded-full bg-obsidian"
         />
       </div>
       <div class="flex flex-col text-left">
-        <span class="font-display text-xs sm:text-sm tracking-[0.26em] uppercase shimmer-gold font-bold">
-          Conciencia Fractal
-        </span>
-        <span class="text-[10px] tracking-[0.28em] uppercase text-gold-light/60 font-light mt-0.5">
-          Semilla de Sabiduría
+        <span class="font-display text-xs sm:text-base tracking-[0.18em] uppercase shimmer-gold font-bold leading-snug">
+          Asociación Nacional de Educación Financiera Fractal
         </span>
       </div>
     </a>
@@ -238,7 +240,7 @@
 
   <main class="relative z-10 max-w-3xl mx-auto px-5 sm:px-10 text-center">
 
-    <section class="min-h-screen flex flex-col items-center justify-center pt-24 pb-16">
+    <section class="min-h-screen flex flex-col items-center justify-center pt-32 sm:pt-36 pb-16">
       <div class="reveal-passage visible space-y-10">
         <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-gold/25 bg-void/60 backdrop-blur-md">
           <span class="w-1.5 h-1.5 rounded-full bg-gold breath-dot"></span>
@@ -377,9 +379,7 @@
           </div>
         </div>
 
-        <p id="holon-caption" class="font-serif italic text-xl sm:text-2xl text-gold-light max-w-xl mx-auto leading-relaxed min-h-[3.5rem] transition-opacity duration-500 gold-glow-text">
-          “Cada hogar, cada oficio y cada acuerdo es una totalidad íntegra que, al enlazarse en reciprocidad, da vida al equilibrio de toda la comunidad.”
-        </p>
+        <p id="holon-caption" class="font-serif italic text-xl sm:text-2xl text-gold-light max-w-xl mx-auto leading-relaxed transition-opacity duration-500 gold-glow-text hidden"></p>
       </div>
 
       <div class="reveal-passage sacred-card rounded-3xl py-11 px-5 sm:px-12 space-y-8">
@@ -444,7 +444,7 @@
     const holonViews = {
       todo: {
         transform: 'scale(1) translate(0%, 0%)',
-        caption: '“Cada hogar, cada oficio y cada acuerdo es una totalidad íntegra que, al enlazarse en reciprocidad, da vida al equilibrio de toda la comunidad.”'
+        caption: ''
       },
       centro: {
         transform: 'scale(1.85) translate(0%, -2%)',
@@ -474,11 +474,20 @@
 
       if (img) img.style.transform = view.transform;
       if (caption) {
-        caption.style.opacity = '0';
-        setTimeout(() => {
-          caption.textContent = view.caption;
-          caption.style.opacity = '1';
-        }, 220);
+        if (!view.caption) {
+          caption.style.opacity = '0';
+          setTimeout(() => {
+            caption.textContent = '';
+            caption.classList.add('hidden');
+          }, 220);
+        } else {
+          caption.classList.remove('hidden');
+          caption.style.opacity = '0';
+          setTimeout(() => {
+            caption.textContent = view.caption;
+            caption.style.opacity = '1';
+          }, 220);
+        }
       }
     }
 

@@ -62,21 +62,23 @@
 
     .seal-emblem {
       box-shadow:
-        0 0 32px rgba(245, 176, 65, 0.38),
-        0 0 12px rgba(16, 185, 129, 0.3),
-        inset 0 0 14px rgba(253, 230, 138, 0.4);
+        0 0 36px rgba(245, 176, 65, 0.42),
+        0 0 14px rgba(16, 185, 129, 0.32),
+        inset 0 0 16px rgba(253, 230, 138, 0.45);
       transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.7s ease;
     }
     .seal-emblem:hover {
       transform: scale(1.06) rotate(2deg);
       box-shadow:
-        0 0 46px rgba(253, 230, 138, 0.6),
-        0 0 18px rgba(16, 185, 129, 0.45);
+        0 0 50px rgba(253, 230, 138, 0.65),
+        0 0 20px rgba(16, 185, 129, 0.48);
     }
 
     .seal-img {
       image-rendering: -webkit-optimize-contrast;
-      filter: contrast(1.06) saturate(1.08);
+      image-rendering: high-quality;
+      filter: contrast(1.08) saturate(1.1) brightness(1.03);
+      transform: translateZ(0);
     }
 
     .sacred-card {
@@ -215,8 +217,8 @@
   <canvas id="cosmos-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
   <header class="fixed top-0 left-0 right-0 z-30 px-5 sm:px-8 py-4 flex items-center justify-between bg-gradient-to-b from-void/90 via-void/55 to-transparent pointer-events-none">
-    <a href="#" aria-label="Asociación Nacional de Educación Financiera Fractal" class="pointer-events-auto flex items-center gap-4 group max-w-[92vw]">
-      <div class="seal-emblem relative w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-tr from-gold-deep via-gold-light to-emerald-glow overflow-hidden shrink-0">
+    <a href="#" aria-label="Asociación Nacional de Educación Financiera Fractal" class="pointer-events-auto flex items-center gap-4 sm:gap-5 group max-w-[94vw]">
+      <div class="seal-emblem relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full p-[3px] bg-gradient-to-tr from-gold-deep via-gold-light to-emerald-glow overflow-hidden shrink-0">
         <img
           src="logoANEFF.jpeg"
           alt="Logo Asociación Nacional de Educación Financiera Fractal"
@@ -224,7 +226,7 @@
         />
       </div>
       <div class="flex flex-col text-left">
-        <span class="font-display text-xs sm:text-base tracking-[0.18em] uppercase shimmer-gold font-bold leading-snug">
+        <span class="font-display text-xs sm:text-base md:text-lg tracking-[0.18em] uppercase shimmer-gold font-bold leading-snug">
           Asociación Nacional de Educación Financiera Fractal
         </span>
       </div>
@@ -240,7 +242,7 @@
 
   <main class="relative z-10 max-w-3xl mx-auto px-5 sm:px-10 text-center">
 
-    <section class="min-h-screen flex flex-col items-center justify-center pt-32 sm:pt-36 pb-16">
+    <section class="min-h-screen flex flex-col items-center justify-center pt-36 sm:pt-44 pb-16">
       <div class="reveal-passage visible space-y-10">
         <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-gold/25 bg-void/60 backdrop-blur-md">
           <span class="w-1.5 h-1.5 rounded-full bg-gold breath-dot"></span>
@@ -338,7 +340,7 @@
 
         <div class="space-y-2.5">
           <p class="font-display text-xs sm:text-sm uppercase tracking-[0.28em] shimmer-gold">
-            Contemplación del Holón Comunitario
+            Contemplación del Ecosistema Holónico
           </p>
           <p class="font-serif italic text-lg sm:text-xl text-gray-300/90">
             Explora cada rumbo de este tejido vivo donde la raíz ancestral dialoga con la nueva era
@@ -347,7 +349,7 @@
 
         <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
           <button type="button" onclick="focusHolon('todo', this)" class="holon-pill active px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/70 text-xs tracking-wider text-gray-300 hover:border-gold/60">
-            El Holón Completo
+            Ecosistema Completo
           </button>
           <button type="button" onclick="focusHolon('centro', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/70 text-xs tracking-wider text-gray-300 hover:border-gold/60">
             Red de Confianza
@@ -361,15 +363,17 @@
           <button type="button" onclick="focusHolon('este', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/70 text-xs tracking-wider text-gray-300 hover:border-gold/60">
             Comercio y Tokens
           </button>
+          <button type="button" onclick="focusHolon('sur', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/70 text-xs tracking-wider text-gray-300 hover:border-gold/60">
+            Participación y Crecimiento
+          </button>
         </div>
 
         <div class="relative max-w-xl mx-auto">
-          <div onclick="openHolonModal()" title="Clic para contemplar en pantalla completa" class="holon-frame relative aspect-square w-full rounded-2xl overflow-hidden border border-gold/40 bg-obsidian cursor-zoom-in group">
+          <div onclick="openHolonModal()" title="Clic para contemplar en pantalla completa" class="holon-frame relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-gold/40 bg-obsidian cursor-zoom-in group">
             <img
               id="holon-image"
-              src="hol%C3%B3n.jfif"
-              onerror="this.onerror=null; this.src='holón.jfif';"
-              alt="Códice del Holón: Red de Confianza, Contratos Inteligentes, Billetera Digital y Tokenización de Activos"
+              src="ecosistemaholonico.jfif"
+              alt="Códice del Ecosistema Holónico: Red de Confianza, Contratos Inteligentes, Billetera Digital, Tokenización de Activos y Participación y Crecimiento"
               class="w-full h-full object-cover"
             />
             <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold/30 rounded-2xl bg-gradient-to-t from-void/45 via-transparent to-void/20"></div>
@@ -429,9 +433,8 @@
   <div id="holon-modal" onclick="closeHolonModal()" class="fixed inset-0 z-50 hidden items-center justify-center bg-void/92 backdrop-blur-md p-4 sm:p-8 cursor-zoom-out">
     <div class="relative max-w-3xl w-full flex flex-col items-center gap-4" onclick="event.stopPropagation()">
       <img
-        src="hol%C3%B3n.jfif"
-        onerror="this.onerror=null; this.src='holón.jfif';"
-        alt="Códice del Holón en pantalla completa"
+        src="ecosistemaholonico.jfif"
+        alt="Códice del Ecosistema Holónico en pantalla completa"
         class="max-h-[82vh] w-auto rounded-2xl border border-gold/40 shadow-[0_0_90px_rgba(245,176,65,0.25)]"
       />
       <button type="button" onclick="closeHolonModal()" class="px-5 py-1.5 rounded-full border border-gold/40 bg-void/80 text-xs tracking-[0.25em] uppercase text-gold-light hover:bg-gold/15 transition-colors">
@@ -448,7 +451,7 @@
       },
       centro: {
         transform: 'scale(1.85) translate(0%, -2%)',
-        caption: '“Red de Confianza (Blockchain): una memoria común, luminosa y compartida por todos, donde la verdad de lo construido permanece intacta.”'
+        caption: '“Red de Confianza (Blockchain): una memoria común, luminosa y compartida por todos, donde la energía libre y la verdad de lo construido permanecen intactas.”'
       },
       norte: {
         transform: 'scale(1.75) translate(0%, 26%)',
@@ -461,6 +464,10 @@
       este: {
         transform: 'scale(1.75) translate(-25%, -2%)',
         caption: '“Tokenización de Activos (Comercio): los frutos de la tierra y el oficio representados como semillas digitales de confianza mutua.”'
+      },
+      sur: {
+        transform: 'scale(1.75) translate(0%, -26%)',
+        caption: '“Participación y Crecimiento (Inversiones y Ecosistema): la inteligencia colectiva de la comunidad impulsando proyectos y prosperidad compartida.”'
       }
     };
 

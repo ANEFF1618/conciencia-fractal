@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conciencia Fractal — Reflexión desde la Semilla de ANEFF</title>
+  <meta name="description" content="Una meditación filosófica y cultural sobre la armonía de la naturaleza, el valor sagrado de nuestro tiempo y el despertar de una economía con conciencia en México." />
+  
+  <!-- Tipografías elegantes: Cormorant Garamond para profundidad filosófica y Plus Jakarta Sans para lectura serena -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            void: '#05070A',
+            obsidian: '#0A0E14',
+            abyssal: '#0C1A17',
+            gold: {
+              light: '#FDE68A',
+              DEFAULT: '#F5B041',
+              deep: '#B47B2B',
+            },
+            emerald: {
+              glow: '#10B981',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #05070A;
+      color: #F3F4F6;
+      overflow-x: hidden;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #05070A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(245, 176, 65, 0.25);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(245, 176, 65, 0.5);
+    }
+
+    /* Velo sutil de lectura sobre el cosmos */
+    .meditation-veil {
+      background: radial-gradient(ellipse at center, rgba(8, 12, 19, 0.72) 0%, rgba(5, 7, 10, 0.35) 70%, transparent 100%);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    /* Animación suave de aparición al hacer scroll */
+    .reveal-passage {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 1.35s cubic-bezier(0.22, 1, 0.36, 1), transform 1.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-passage.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Resplandor sereno en frases clave */
+    .gold-glow-text {
+      text-shadow: 0 0 32px rgba(245, 176, 65, 0.28);
+    }
+
+    @keyframes pulseBreath {
+      0%, 100% { opacity: 0.45; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+    .breath-dot {
+      animation: pulseBreath 4s ease-in-out infinite;
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(7px); }
+    }
+    .animate-float {
+      animation: floatSlow 3.8s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-gold/30 selection:text-gold-light">
+
+  <!-- Lienzo fijo del Universo: Estrellas, Estrellas Fugaces y Destellos Áureos -->
+  <canvas id="cosmos-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+  <!-- Cabecera minimalista flotante -->
+  <header class="fixed top-0 left-0 right-0 z-30 px-6 py-5 flex items-center justify-between bg-gradient-to-b from-void/85 to-transparent">
+    <div class="flex items-center gap-3">
+      <span class="w-1.5 h-1.5 rounded-full bg-gold breath-dot"></span>
+      <span class="text-[11px] tracking-[0.34em] uppercase text-gold-light/75 font-light">Conciencia Fractal</span>
+    </div>
+  </header>
+
+  <!-- Indicador lateral discreto de lectura -->
+  <div class="fixed right-5 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col items-center gap-2.5">
+    <div class="w-[1px] h-28 bg-white/10 rounded-full overflow-hidden">
+      <div id="scroll-progress" class="w-full bg-gradient-to-b from-gold-light via-gold to-emerald-glow h-0 transition-all duration-150"></div>
+    </div>
+    <span class="text-xs text-gold/50 font-serif italic">φ</span>
+  </div>
+
+  <!-- FLUJO NARRATIVO CENTRADO Y CONTEMPLATIVO -->
+  <main class="relative z-10 max-w-3xl mx-auto px-6 sm:px-10 text-center">
+
+    <!-- APERTURA -->
+    <section class="min-h-screen flex flex-col items-center justify-center pt-12 pb-16">
+      <div class="reveal-passage visible space-y-10">
+        <p class="text-[11px] sm:text-xs uppercase tracking-[0.38em] text-gold/75 font-light">
+          México &bull; 21 de noviembre de 2026
+        </p>
+
+        <h1 class="font-serif text-3xl sm:text-5xl md:text-[3.35rem] font-normal leading-[1.24] text-white gold-glow-text">
+          Hay una sabiduría silenciosa escrita en la nervadura de una hoja, en la espiral de un caracol y en el giro de las estrellas: la vida jamás se construye desde la imposición, sino desde una armonía fractal donde cada pequeño fragmento guarda en su interior el aliento del universo entero.
+        </h1>
+
+        <div class="pt-8 animate-float">
+          <a href="#meditacion" aria-label="Continuar lectura" class="inline-flex flex-col items-center gap-3 text-[11px] tracking-[0.3em] uppercase text-gold-light/60 hover:text-gold transition-colors">
+            <span>Contemplar</span>
+            <span class="w-[1px] h-8 bg-gradient-to-b from-gold/60 to-transparent"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDITACIÓN CONTINUA -->
+    <article id="meditacion" class="space-y-24 sm:space-y-32 pb-28">
+
+      <!-- PASAJE 1: LA MEMORIA DE 2021 -->
+      <div class="reveal-passage meditation-veil rounded-3xl py-10 px-4 sm:px-10 space-y-7">
+        <div class="flex items-center justify-center gap-3 opacity-70">
+          <span class="w-8 h-[1px] bg-gradient-to-r from-transparent to-gold/60"></span>
+          <span class="w-1.5 h-1.5 rotate-45 border border-gold"></span>
+          <span class="w-8 h-[1px] bg-gradient-to-l from-transparent to-gold/60"></span>
+        </div>
+
+        <p class="font-serif text-2xl sm:text-3xl md:text-[2.15rem] leading-[1.45] text-gray-100 font-normal">
+          En <span class="text-gold-light">2021</span>, mientras el alma de México se recogía en torno al <em class="text-gold-light/95">Año de la Independencia</em> —honrando siete siglos de raíz viva en Tenochtitlán, quinientos años de dignidad y resistencia, y el bicentenario de nuestra emancipación—, comenzó a germinar en silencio una pregunta esencial:
+        </p>
+
+        <p class="font-serif italic text-2xl sm:text-3xl md:text-4xl text-gold-light leading-[1.35] py-2 gold-glow-text">
+          “¿En qué instante de nuestra historia olvidamos que el sustento humano debe florecer con la misma reciprocidad, transparencia y equilibrio con que la naturaleza sostiene la vida?”
+        </p>
+
+        <p class="text-base sm:text-lg md:text-xl text-gray-300/90 font-light leading-[1.85] max-w-2xl mx-auto">
+          Nuestros pueblos originarios ya comprendían este orden vivo que la sabiduría reconoce como <span class="text-gold-light font-normal">holarquía</span>: un tejido natural donde cada ser, cada familia y cada comunidad es a la vez un mundo completo en sí mismo y parte esencial de una totalidad mayor —un <span class="text-gold-light font-normal">holón</span>—. Lejos de estructuras rígidas o dictadas desde algún centro de poder, sabían que el tiempo y la vida florecen en espirales sagradas donde el bienestar de cada parte sostiene y honra el equilibrio del todo.
+        </p>
+      </div>
+
+      <!-- PASAJE 2: EL UMBRAL DEL 21 DE NOVIEMBRE DE 2026 -->
+      <div class="reveal-passage meditation-veil rounded-3xl py-10 px-4 sm:px-10 space-y-7">
+        <div class="flex items-center justify-center gap-3 opacity-70">
+          <span class="w-8 h-[1px] bg-gradient-to-r from-transparent to-gold/60"></span>
+          <span class="w-1.5 h-1.5 rotate-45 border border-gold"></span>
+          <span class="w-8 h-[1px] bg-gradient-to-l from-transparent to-gold/60"></span>
+        </div>
+
+        <p class="font-serif text-2xl sm:text-3xl md:text-[2.15rem] leading-[1.45] text-gray-100 font-normal">
+          Hoy, <span class="text-gold-light">21 de noviembre de 2026</span>, con la entrada en vigor en nuestro país de la <span class="text-white">Ley de Economía Digital para Pagos Digitales y Electrónicos</span>, cruzamos un umbral silencioso pero irreversible.
+        </p>
+
+        <p class="text-base sm:text-lg md:text-xl text-gray-300/90 font-light leading-[1.85] max-w-2xl mx-auto">
+          Más allá de la agilidad de los pagos cotidianos, este paso abre la puerta hacia una nueva <span class="text-gold-light/95 font-normal">criptoeconomía con conciencia</span>: una etapa en la que la tecnología deja de ser un fin en sí mismo para convertirse en el vehículo que nos permite reencontrarnos con el valor sagrado de nuestro tiempo, nuestra dignidad y nuestra capacidad de colaborar sin intermediarios que distorsionen el esfuerzo humano.
+        </p>
+      </div>
+
+      <!-- PASAJE 3: EL TIEMPO DE VIDA, LA MEMORIA COMPARTIDA Y LA PALABRA EMPEÑADA -->
+      <div class="reveal-passage meditation-veil rounded-3xl py-10 px-4 sm:px-10 space-y-8">
+        <div class="flex items-center justify-center gap-3 opacity-70">
+          <span class="w-8 h-[1px] bg-gradient-to-r from-transparent to-gold/60"></span>
+          <span class="w-1.5 h-1.5 rotate-45 border border-gold"></span>
+          <span class="w-8 h-[1px] bg-gradient-to-l from-transparent to-gold/60"></span>
+        </div>
+
+        <p class="font-serif text-2xl sm:text-3xl md:text-[2.15rem] leading-[1.52] text-gray-100 font-normal">
+          En este nuevo horizonte, las comunidades que hoy florecen desde el <span class="text-gold-light">código programable</span> y el <span class="text-gold-light">respaldo criptográfico</span> nos devuelven una certeza antigua y luminosa: que el verdadero valor jamás se decreta desde la distancia, sino que brota de la entrega honesta, la sabiduría compartida y la reciprocidad entre seres humanos. Así, cada <span class="text-gold-light">moneda digital</span> y cada <span class="text-gold-light">token</span> —esas pequeñas semillas digitales de confianza que representan un fruto, un saber o un compromiso dentro de una comunidad— guardan el latido de esa colaboración y encuentran abrigo en nuestra propia <span class="text-gold-light">wallet</span> <em class="text-gray-300 text-xl sm:text-2xl">(billetera digital)</em>: un espacio íntimo y nuestro donde cuidamos, con manos propias y dignidad, las horas de vida que hemos convertido en trabajo y entrega. Todo ello descansa sobre la <span class="text-gold-light">blockchain</span> <em class="text-gray-300 text-xl sm:text-2xl">(cadena de bloques)</em> —una memoria común y transparente que nos pertenece a todos y que nadie puede borrar ni alterar en silencio— y se honra mediante <span class="text-gold-light">contratos inteligentes</span>: compromisos claros que cumplen lo acordado con limpieza, devolviéndonos aquella entrañable certeza de que nuestra palabra vale.
+        </p>
+      </div>
+
+      <!-- PASAJE 4: EL ASOMBRO DE LA INFANCIA Y LA LUCIDEZ DEL ADULTO -->
+      <div class="reveal-passage meditation-veil rounded-3xl py-10 px-4 sm:px-10 space-y-7">
+        <div class="flex items-center justify-center gap-3 opacity-70">
+          <span class="w-8 h-[1px] bg-gradient-to-r from-transparent to-gold/60"></span>
+          <span class="w-1.5 h-1.5 rotate-45 border border-gold"></span>
+          <span class="w-8 h-[1px] bg-gradient-to-l from-transparent to-gold/60"></span>
+        </div>
+
+        <p class="font-serif text-2xl sm:text-3xl md:text-[2.2rem] leading-[1.52] text-gray-100 font-normal">
+          Qué conmovedor es regresar, en lo más hondo de la memoria, a aquella <span class="text-gold-light">mirada primera de la infancia</span> que se detenía sin prisa a contemplar el dibujo secreto de una semilla o el trazo de la lluvia sobre la tierra, y reconciliar esa ternura intacta con el <span class="text-gold-light">alma serena del adulto</span> que hoy elige caminar su historia con verdad, gratitud y fraternidad.
+        </p>
+      </div>
+
+    </article>
+
+    <!-- CIERRE CONTEMPLATIVO -->
+    <footer class="min-h-[75vh] flex flex-col items-center justify-center pb-24 pt-8">
+      <div class="reveal-passage space-y-12">
+        <div class="w-20 h-[1px] bg-gradient-to-r from-transparent via-gold/70 to-transparent mx-auto"></div>
+
+        <p class="font-serif italic text-2xl sm:text-4xl md:text-[2.65rem] text-white leading-[1.38] gold-glow-text">
+          “Porque la verdadera libertad nunca nos llega como un permiso desde afuera; vuelve a nosotros como un abrazo antiguo de la memoria, en el instante sereno en que recordamos cuánto valen nuestras horas de vida, la nobleza de nuestra palabra dada y la luz silenciosa que siempre habitó en nuestro interior.”
+        </p>
+
+        <div class="pt-14 space-y-2.5">
+          <p class="text-xs tracking-[0.34em] uppercase text-gold/80 font-normal">
+            Una reflexión desde la semilla de ANEFF
+          </p>
+          <p class="text-[11px] tracking-[0.22em] uppercase text-gray-500 font-light">
+            Cultura Fractal &bull; Soberanía de la Conciencia &bull; México
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- MOTOR DEL UNIVERSO EN CANVAS Y ATMÓSFERA SONORA -->
+  <script>
+    const canvas = document.getElementById('cosmos-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    let scrollProgress = 0;
+    let targetScrollProgress = 0;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initStars();
+    });
+
+    window.addEventListener('scroll', () => {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      targetScrollProgress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      
+      const bar = document.getElementById('scroll-progress');
+      if (bar) bar.style.height = `${Math.min(100, targetScrollProgress * 100)}%`;
+    }, { passive: true });
+
+    // Estrellas profundas del cosmos
+    let stars = [];
+    function initStars() {
+      stars = [];
+      const count = Math.floor((width * height) / 6000);
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.45 + 0.2,
+          alpha: Math.random() * 0.85 + 0.12,
+          twinkleSpeed: Math.random() * 0.018 + 0.004,
+          phase: Math.random() * Math.PI * 2,
+          isGold: Math.random() > 0.75
+        });
+      }
+    }
+    initStars();
+
+    // Estrellas fugaces lejanas en múltiples direcciones
+    let shootingStars = [];
+    function createShootingStar() {
+      const edge = Math.floor(Math.random() * 4);
+      let startX, startY, angle;
+
+      if (edge === 0) {
+        startX = Math.random() * width;
+        startY = -20;
+        angle = Math.PI * (0.2 + Math.random() * 0.6);
+      } else if (edge === 1) {
+        startX = width + 20;
+        startY = Math.random() * height * 0.8;
+        angle = Math.PI * (0.65 + Math.random() * 0.5);
+      } else if (edge === 2) {
+        startX = -20;
+        startY = Math.random() * height * 0.8;
+        angle = (Math.random() * 0.5 - 0.25) * Math.PI;
+      } else {
+        startX = Math.random() * width;
+        startY = Math.random() * height * 0.55;
+        angle = Math.random() * Math.PI * 2;
+      }
+
+      const speed = Math.random() * 6.5 + 5.5;
+      shootingStars.push({
+        x: startX,
+        y: startY,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        length: Math.random() * 115 + 70,
+        alpha: 1,
+        decay: Math.random() * 0.013 + 0.011,
+        isGolden: Math.random() > 0.3
+      });
+    }
+
+    // Destellos brillosos áureos flotantes
+    let goldenDust = [];
+    for (let i = 0; i < 48; i++) {
+      goldenDust.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: -Math.random() * 0.32 - 0.08,
+        size: Math.random() * 2.5 + 0.8,
+        alpha: Math.random() * 0.75 + 0.2,
+        pulse: Math.random() * Math.PI * 2
+      });
+    }
+
+    let lastShootingStarTime = 0;
+    function animate(time) {
+      scrollProgress += (targetScrollProgress - scrollProgress) * 0.05;
+
+      const bgGrad = ctx.createRadialGradient(
+        width * 0.5, height * 0.45, 10,
+        width * 0.5, height * 0.5, Math.max(width, height) * 0.88
+      );
+      bgGrad.addColorStop(0, '#0B131E');
+      bgGrad.addColorStop(0.55, '#070A10');
+      bgGrad.addColorStop(1, '#030407');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, width, height);
+
+      // Estrellas
+      for (let i = 0; i < stars.length; i++) {
+        const s = stars[i];
+        s.phase += s.twinkleSpeed;
+        const currentAlpha = s.alpha * (0.65 + 0.35 * Math.sin(s.phase));
+        const parallaxY = (s.y - scrollProgress * 110) % height;
+        const drawY = parallaxY < 0 ? parallaxY + height : parallaxY;
+
+        ctx.beginPath();
+        ctx.arc(s.x, drawY, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = s.isGold
+          ? `rgba(253, 230, 138, ${currentAlpha})`
+          : `rgba(226, 232, 240, ${currentAlpha * 0.8})`;
+        ctx.fill();
+      }
+
+      // Estrellas fugaces
+      if (time - lastShootingStarTime > 2400 + Math.random() * 2300) {
+        createShootingStar();
+        lastShootingStarTime = time;
+      }
+
+      for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const ss = shootingStars[i];
+        ss.x += ss.vx;
+        ss.y += ss.vy;
+        ss.alpha -= ss.decay;
+
+        if (ss.alpha <= 0) {
+          shootingStars.splice(i, 1);
+          continue;
+        }
+
+        const tailX = ss.x - (ss.vx / Math.hypot(ss.vx, ss.vy)) * ss.length;
+        const tailY = ss.y - (ss.vy / Math.hypot(ss.vx, ss.vy)) * ss.length;
+
+        const grad = ctx.createLinearGradient(ss.x, ss.y, tailX, tailY);
+        if (ss.isGolden) {
+          grad.addColorStop(0, `rgba(253, 230, 138, ${ss.alpha})`);
+          grad.addColorStop(0.4, `rgba(245, 176, 65, ${ss.alpha * 0.5})`);
+          grad.addColorStop(1, 'rgba(245, 176, 65, 0)');
+        } else {
+          grad.addColorStop(0, `rgba(255, 255, 255, ${ss.alpha})`);
+          grad.addColorStop(0.4, `rgba(186, 230, 253, ${ss.alpha * 0.45})`);
+          grad.addColorStop(1, 'rgba(186, 230, 253, 0)');
+        }
+
+        ctx.beginPath();
+        ctx.moveTo(ss.x, ss.y);
+        ctx.lineTo(tailX, tailY);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.5;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(ss.x, ss.y, 1.7, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 251, 235, ${ss.alpha})`;
+        ctx.fill();
+      }
+
+      // Destellos áureos flotantes
+      for (let i = goldenDust.length - 1; i >= 0; i--) {
+        const d = goldenDust[i];
+        d.x += d.vx;
+        d.y += d.vy;
+        d.pulse += 0.038;
+
+        if (d.y < -10) d.y = height + 10;
+        if (d.x < -10) d.x = width + 10;
+        if (d.x > width + 10) d.x = -10;
+
+        const glowAlpha = d.alpha * (0.6 + 0.4 * Math.sin(d.pulse));
+        const halo = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, d.size * 3.6);
+        halo.addColorStop(0, `rgba(253, 230, 138, ${glowAlpha})`);
+        halo.addColorStop(0.5, `rgba(245, 176, 65, ${glowAlpha * 0.35})`);
+        halo.addColorStop(1, 'rgba(245, 176, 65, 0)');
+
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.size * 3.6, 0, Math.PI * 2);
+        ctx.fillStyle = halo;
+        ctx.fill();
+      }
+
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    // Aparición suave al desplazar
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.18 });
+
+    document.querySelectorAll('.reveal-passage').forEach((sec) => observer.observe(sec));
+  </script>
+</body>
+</html>

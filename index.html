@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -16,15 +16,16 @@
       theme: {
         extend: {
           fontFamily: {
+            display: ['"Cinzel Decorative"', 'Georgia', 'serif'],
             serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
             sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
           },
           colors: {
-            void: '#05070A',
+            void: '#040609',
             obsidian: '#0A0E14',
             abyssal: '#0C1A17',
             gold: {
-              light: '#FDE68A',
+              light: '#FEF08A',
               DEFAULT: '#F5B041',
               deep: '#B47B2B',
             },
@@ -39,7 +40,7 @@
 
   <style>
     body {
-      background-color: #05070A;
+      background-color: #040609;
       color: #F3F4F6;
       overflow-x: hidden;
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -49,39 +50,123 @@
       width: 5px;
     }
     ::-webkit-scrollbar-track {
-      background: #05070A;
+      background: #040609;
     }
     ::-webkit-scrollbar-thumb {
-      background: rgba(245, 176, 65, 0.25);
+      background: rgba(245, 176, 65, 0.35);
       border-radius: 9999px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(245, 176, 65, 0.5);
+      background: rgba(245, 176, 65, 0.65);
     }
 
-    .meditation-veil {
-      background: radial-gradient(ellipse at center, rgba(8, 12, 19, 0.74) 0%, rgba(5, 7, 10, 0.38) 70%, transparent 100%);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+    .seal-emblem {
+      box-shadow:
+        0 0 28px rgba(245, 176, 65, 0.32),
+        0 0 8px rgba(16, 185, 129, 0.25),
+        inset 0 0 12px rgba(253, 230, 138, 0.35);
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.7s ease;
+    }
+    .seal-emblem:hover {
+      transform: scale(1.07) rotate(2deg);
+      box-shadow:
+        0 0 42px rgba(253, 230, 138, 0.55),
+        0 0 16px rgba(16, 185, 129, 0.4);
+    }
+
+    .sacred-card {
+      position: relative;
+      background: linear-gradient(160deg, rgba(12, 18, 28, 0.78) 0%, rgba(7, 13, 16, 0.66) 50%, rgba(10, 14, 22, 0.8) 100%);
+      border: 1px solid rgba(245, 176, 65, 0.22);
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.65),
+        0 0 50px rgba(245, 176, 65, 0.06),
+        inset 0 1px 0 rgba(254, 240, 138, 0.16);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: border-color 0.8s ease, box-shadow 0.8s ease;
+    }
+    .sacred-card:hover {
+      border-color: rgba(245, 176, 65, 0.42);
+      box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.72),
+        0 0 65px rgba(245, 176, 65, 0.12),
+        inset 0 1px 0 rgba(254, 240, 138, 0.28);
+    }
+
+    .corner-ornament {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-color: rgba(245, 176, 65, 0.5);
+      pointer-events: none;
+    }
+    .corner-tl { top: 12px; left: 12px; border-top-width: 1.5px; border-left-width: 1.5px; border-top-left-radius: 6px; }
+    .corner-tr { top: 12px; right: 12px; border-top-width: 1.5px; border-right-width: 1.5px; border-top-right-radius: 6px; }
+    .corner-bl { bottom: 12px; left: 12px; border-bottom-width: 1.5px; border-left-width: 1.5px; border-bottom-left-radius: 6px; }
+    .corner-br { bottom: 12px; right: 12px; border-bottom-width: 1.5px; border-right-width: 1.5px; border-bottom-right-radius: 6px; }
+
+    .shimmer-gold {
+      background: linear-gradient(
+        110deg,
+        #F5B041 0%,
+        #FEF9C3 25%,
+        #FDE68A 48%,
+        #D97706 72%,
+        #FEF08A 100%
+      );
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: goldFlow 7s linear infinite;
+    }
+
+    @keyframes goldFlow {
+      0% { background-position: 0% center; }
+      100% { background-position: 220% center; }
+    }
+
+    .mystic-term {
+      color: #FEF08A;
+      text-shadow: 0 0 18px rgba(245, 176, 65, 0.35);
+      border-bottom: 1px dotted rgba(245, 176, 65, 0.45);
+      padding-bottom: 1px;
+    }
+
+    .emerald-whisper {
+      color: #6EE7B7;
+      text-shadow: 0 0 20px rgba(16, 185, 129, 0.32);
+    }
+
+    .drop-cap::first-letter {
+      font-family: 'Cinzel Decorative', Georgia, serif;
+      float: left;
+      font-size: 3.35rem;
+      line-height: 0.85;
+      padding-right: 0.65rem;
+      padding-top: 0.2rem;
+      color: #FDE68A;
+      text-shadow: 0 0 24px rgba(245, 176, 65, 0.5);
     }
 
     .reveal-passage {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 1.35s cubic-bezier(0.22, 1, 0.36, 1), transform 1.35s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(30px) scale(0.985);
+      transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1), transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .reveal-passage.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
     .holon-frame {
-      box-shadow: 0 0 60px rgba(245, 176, 65, 0.14), inset 0 0 30px rgba(5, 7, 10, 0.65);
+      box-shadow: 0 0 65px rgba(245, 176, 65, 0.18), inset 0 0 30px rgba(5, 7, 10, 0.65);
       transition: box-shadow 0.9s ease, border-color 0.9s ease;
     }
     .holon-frame:hover {
-      box-shadow: 0 0 80px rgba(245, 176, 65, 0.26), inset 0 0 25px rgba(5, 7, 10, 0.45);
+      box-shadow: 0 0 85px rgba(245, 176, 65, 0.32), inset 0 0 25px rgba(5, 7, 10, 0.45);
     }
 
     #holon-image {
@@ -93,19 +178,19 @@
       transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .holon-pill.active {
-      background: rgba(245, 176, 65, 0.18);
-      border-color: rgba(253, 230, 138, 0.7);
-      color: #FDE68A;
-      box-shadow: 0 0 20px rgba(245, 176, 65, 0.22);
+      background: linear-gradient(135deg, rgba(245, 176, 65, 0.24), rgba(16, 185, 129, 0.14));
+      border-color: rgba(254, 240, 138, 0.8);
+      color: #FEF08A;
+      box-shadow: 0 0 24px rgba(245, 176, 65, 0.28);
     }
 
     .gold-glow-text {
-      text-shadow: 0 0 32px rgba(245, 176, 65, 0.28);
+      text-shadow: 0 0 36px rgba(245, 176, 65, 0.34), 0 2px 14px rgba(0, 0, 0, 0.85);
     }
 
     @keyframes pulseBreath {
       0%, 100% { opacity: 0.45; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.15); }
+      50% { opacity: 1; transform: scale(1.2); }
     }
     .breath-dot {
       animation: pulseBreath 4s ease-in-out infinite;
@@ -124,36 +209,53 @@
 
   <canvas id="cosmos-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
-  <header class="fixed top-0 left-0 right-0 z-30 px-6 py-5 flex items-center justify-between bg-gradient-to-b from-void/85 to-transparent">
-    <div class="flex items-center gap-3">
-      <span class="w-1.5 h-1.5 rounded-full bg-gold breath-dot"></span>
-      <span class="text-[11px] tracking-[0.34em] uppercase text-gold-light/75 font-light">Conciencia Fractal</span>
-    </div>
+  <header class="fixed top-0 left-0 right-0 z-30 px-5 sm:px-8 py-4 flex items-center justify-between bg-gradient-to-b from-void/90 via-void/50 to-transparent pointer-events-none">
+    <a href="#" aria-label="Inicio Conciencia Fractal" class="pointer-events-auto flex items-center gap-3.5 group">
+      <div class="seal-emblem relative w-14 h-14 sm:w-16 sm:h-16 rounded-full p-[2px] bg-gradient-to-tr from-gold-deep via-gold-light to-emerald-glow overflow-hidden shrink-0">
+        <img
+          src="logoANEFF.jpeg"
+          alt="Sello ANEFF"
+          class="w-full h-full object-cover rounded-full bg-obsidian"
+        />
+      </div>
+      <div class="flex flex-col text-left">
+        <span class="font-display text-xs sm:text-sm tracking-[0.26em] uppercase shimmer-gold font-bold">
+          Conciencia Fractal
+        </span>
+        <span class="text-[10px] tracking-[0.28em] uppercase text-gold-light/60 font-light mt-0.5">
+          Semilla de Sabiduría
+        </span>
+      </div>
+    </a>
   </header>
 
   <div class="fixed right-5 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col items-center gap-2.5">
     <div class="w-[1px] h-28 bg-white/10 rounded-full overflow-hidden">
       <div id="scroll-progress" class="w-full bg-gradient-to-b from-gold-light via-gold to-emerald-glow h-0 transition-all duration-150"></div>
     </div>
-    <span class="text-xs text-gold/50 font-serif italic">φ</span>
+    <span class="text-sm text-gold/70 font-serif italic">φ</span>
   </div>
 
-  <main class="relative z-10 max-w-3xl mx-auto px-6 sm:px-10 text-center">
+  <main class="relative z-10 max-w-3xl mx-auto px-5 sm:px-10 text-center">
 
-    <section class="min-h-screen flex flex-col items-center justify-center pt-12 pb-16">
+    <section class="min-h-screen flex flex-col items-center justify-center pt-24 pb-16">
       <div class="reveal-passage visible space-y-10">
-        <p class="text-[11px] sm:text-xs uppercase tracking-[0.38em] text-gold/75 font-light">
-          México &bull; 21 de noviembre de 2026
-        </p>
+        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-gold/25 bg-void/60 backdrop-blur-md">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold breath-dot"></span>
+          <span class="text-[11px] sm:text-xs uppercase tracking-[0.36em] text-gold-light/85 font-light">
+            México &bull; 21 de noviembre de 2026
+          </span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-glow breath-dot"></span>
+        </div>
 
-        <h1 class="font-serif text-3xl sm:text-5xl md:text-[3.35rem] font-normal leading-[1.24] text-white gold-glow-text">
-          Hay una sabiduría silenciosa escrita en la nervadura de una hoja, en la espiral de un caracol y en el giro de las estrellas: la vida jamás se construye desde la imposición, sino desde una armonía fractal donde cada pequeño fragmento guarda en su interior el aliento del universo entero.
+        <h1 class="font-serif text-3xl sm:text-5xl md:text-[3.45rem] font-normal leading-[1.24] text-white gold-glow-text">
+          Hay una <span class="shimmer-gold italic font-medium">sabiduría silenciosa</span> escrita en la nervadura de una hoja, en la espiral de un caracol y en el giro de las estrellas: la vida jamás se construye desde la imposición, sino desde una <span class="text-gold-light italic">armonía fractal</span> donde cada pequeño fragmento guarda en su interior el aliento del universo entero.
         </h1>
 
-        <div class="pt-8 animate-float">
-          <a href="#meditacion" aria-label="Continuar lectura" class="inline-flex flex-col items-center gap-3 text-[11px] tracking-[0.3em] uppercase text-gold-light/60 hover:text-gold transition-colors">
+        <div class="pt-6 animate-float">
+          <a href="#meditacion" aria-label="Continuar lectura" class="inline-flex flex-col items-center gap-3 text-[11px] tracking-[0.34em] uppercase text-gold-light/70 hover:text-gold-light transition-colors">
             <span>Contemplar</span>
-            <span class="w-[1px] h-8 bg-gradient-to-b from-gold/60 to-transparent"></span>
+            <span class="w-[1px] h-9 bg-gradient-to-b from-gold via-emerald-glow/50 to-transparent"></span>
           </a>
         </div>
       </div>
@@ -161,57 +263,79 @@
 
     <article id="meditacion" class="space-y-24 sm:space-y-32 pb-28">
 
-      <div class="reveal-passage meditation-veil rounded-3xl py-10 px-4 sm:px-10 space-y-7">
-        <div class="flex items-center justify-center gap-3 opacity-70">
-          <span class="w-8 h-[1px] bg-gradient-to-r from-transparent to-gold/60"></span>
-          <span class="w-1.5 h-1.5 rotate-45 border border-gold"></span>
-          <span class="w-8 h-[1px] bg-gradient-to-l from-transparent to-gold/60"></span>
+      <div class="reveal-passage sacred-card rounded-3xl py-11 px-5 sm:px-12 space-y-8">
+        <span class="corner-ornament corner-tl"></span>
+        <span class="corner-ornament corner-tr"></span>
+        <span class="corner-ornament corner-bl"></span>
+        <span class="corner-ornament corner-br"></span>
+
+        <div class="flex items-center justify-center gap-3 opacity-85">
+          <span class="w-12 h-[1px] bg-gradient-to-r from-transparent to-gold/70"></span>
+          <span class="text-gold text-xs">✦</span>
+          <span class="w-12 h-[1px] bg-gradient-to-l from-transparent to-gold/70"></span>
         </div>
 
-        <p class="font-serif text-2xl sm:text-3xl md:text-[2.15rem] leading-[1.45] text-gray-100 font-normal">
-          En <span class="text-gold-light">2021</span>, mientras el alma de México se recogía en torno al <em class="text-gold-light/95">Año de la Independencia</em> —honrando siete siglos de raíz viva en Tenochtitlán, quinientos años de dignidad y resistencia, y el bicentenario de nuestra emancipación—, comenzó a germinar en silencio una pregunta esencial:
+        <p class="drop-cap text-left sm:text-center font-serif text-2xl sm:text-3xl md:text-[2.2rem] leading-[1.48] text-gray-100 font-normal">
+          En <span class="shimmer-gold font-semibold">2021</span>, mientras el alma de México se recogía en torno al <em class="text-gold-light">Año de la Independencia</em> —honrando siete siglos de raíz viva en Tenochtitlán, quinientos años de dignidad y resistencia, y el bicentenario de nuestra emancipación—, comenzó a germinar en silencio una pregunta esencial:
         </p>
 
-        <p class="font-serif italic text-2xl sm:text-3xl md:text-4xl text-gold-light leading-[1.35] py-2 gold-glow-text">
-          “¿En qué instante de nuestra historia olvidamos que el sustento humano debe florecer con la misma reciprocidad, transparencia y equilibrio con que la naturaleza sostiene la vida?”
-        </p>
+        <blockquote class="relative py-4 px-4 sm:px-8 rounded-2xl bg-gradient-to-r from-transparent via-gold/[0.06] to-transparent border-y border-gold/20">
+          <p class="font-serif italic text-2xl sm:text-3xl md:text-[2.35rem] shimmer-gold leading-[1.36] gold-glow-text">
+            “¿En qué instante de nuestra historia olvidamos que el sustento humano debe florecer con la misma reciprocidad, transparencia y equilibrio con que la naturaleza sostiene la vida?”
+          </p>
+        </blockquote>
 
-        <p class="text-base sm:text-lg md:text-xl text-gray-300/90 font-light leading-[1.85] max-w-2xl mx-auto">
-          Nuestros pueblos originarios ya comprendían este orden vivo que la sabiduría reconoce como <span class="text-gold-light font-normal">holarquía</span>: un tejido natural donde cada ser, cada familia y cada comunidad es a la vez un mundo completo en sí mismo y parte esencial de una totalidad mayor —un <span class="text-gold-light font-normal">holón</span>—. Lejos de estructuras rígidas o dictadas desde algún centro de poder, sabían que el tiempo y la vida florecen en espirales sagradas donde el bienestar de cada parte sostiene y honra el equilibrio del todo.
+        <p class="text-base sm:text-lg md:text-xl text-gray-200/90 font-light leading-[1.9] max-w-2xl mx-auto">
+          Nuestros pueblos originarios ya comprendían este orden vivo que la sabiduría reconoce como <span class="mystic-term font-normal">holarquía</span>: un tejido natural donde cada ser, cada familia y cada comunidad es a la vez un mundo completo en sí mismo y parte esencial de una totalidad mayor —un <span class="mystic-term font-normal">holón</span>—. Lejos de estructuras rígidas o dictadas desde algún centro de poder, sabían que el tiempo y la vida florecen en <span class="emerald-whisper">espirales sagradas</span> donde el bienestar de cada parte sostiene y honra el equilibrio del todo.
         </p>
       </div>
 
-      <div class="reveal-passage meditation-veil rounded-3xl py-10 px-4 sm:px-10 space-y-7">
-        <div class="flex items-center justify-center gap-3 opacity-70">
-          <span class="w-8 h-[1px] bg-gradient-to-r from-transparent to-gold/60"></span>
-          <span class="w-1.5 h-1.5 rotate-45 border border-gold"></span>
-          <span class="w-8 h-[1px] bg-gradient-to-l from-transparent to-gold/60"></span>
+      <div class="reveal-passage sacred-card rounded-3xl py-11 px-5 sm:px-12 space-y-8">
+        <span class="corner-ornament corner-tl"></span>
+        <span class="corner-ornament corner-tr"></span>
+        <span class="corner-ornament corner-bl"></span>
+        <span class="corner-ornament corner-br"></span>
+
+        <div class="flex items-center justify-center gap-3 opacity-85">
+          <span class="w-12 h-[1px] bg-gradient-to-r from-transparent to-gold/70"></span>
+          <span class="text-gold text-xs">✦</span>
+          <span class="w-12 h-[1px] bg-gradient-to-l from-transparent to-gold/70"></span>
         </div>
 
-        <p class="font-serif text-2xl sm:text-3xl md:text-[2.15rem] leading-[1.45] text-gray-100 font-normal">
-          Hoy, <span class="text-gold-light">21 de noviembre de 2026</span>, con la entrada en vigor en nuestro país de la <span class="text-white">Ley de Economía Digital para Pagos Digitales y Electrónicos</span>, cruzamos un umbral silencioso pero irreversible.
+        <p class="font-serif text-2xl sm:text-3xl md:text-[2.2rem] leading-[1.48] text-gray-100 font-normal">
+          Hoy, <span class="shimmer-gold font-semibold">21 de noviembre de 2026</span>, con la entrada en vigor en nuestro país de la <span class="text-gold-light border-b border-gold/30">Ley de Economía Digital para Pagos Digitales y Electrónicos</span>, cruzamos un umbral silencioso pero irreversible.
         </p>
 
-        <p class="text-base sm:text-lg md:text-xl text-gray-300/90 font-light leading-[1.85] max-w-2xl mx-auto">
-          Más allá de la agilidad de los pagos cotidianos, este paso abre la puerta hacia una nueva <span class="text-gold-light/95 font-normal">criptoeconomía con conciencia</span>: una etapa en la que la tecnología deja de ser un fin en sí mismo para convertirse en el vehículo que nos permite reencontrarnos con el valor sagrado de nuestro tiempo, nuestra dignidad y nuestra capacidad de colaborar sin intermediarios que distorsionen el esfuerzo humano.
+        <p class="text-base sm:text-lg md:text-xl text-gray-200/90 font-light leading-[1.9] max-w-2xl mx-auto">
+          Más allá de la agilidad de los pagos cotidianos, este paso abre la puerta hacia una nueva <span class="mystic-term font-normal">criptoeconomía con conciencia</span>: una etapa en la que la tecnología deja de ser un fin en sí mismo para convertirse en el vehículo que nos permite reencontrarnos con el <span class="emerald-whisper">valor sagrado de nuestro tiempo</span>, nuestra dignidad y nuestra capacidad de colaborar sin intermediarios que distorsionen el esfuerzo humano.
         </p>
       </div>
 
-      <div class="reveal-passage meditation-veil rounded-3xl py-10 px-4 sm:px-10 space-y-8">
-        <div class="flex items-center justify-center gap-3 opacity-70">
-          <span class="w-8 h-[1px] bg-gradient-to-r from-transparent to-gold/60"></span>
-          <span class="w-1.5 h-1.5 rotate-45 border border-gold"></span>
-          <span class="w-8 h-[1px] bg-gradient-to-l from-transparent to-gold/60"></span>
+      <div class="reveal-passage sacred-card rounded-3xl py-11 px-5 sm:px-12 space-y-8">
+        <span class="corner-ornament corner-tl"></span>
+        <span class="corner-ornament corner-tr"></span>
+        <span class="corner-ornament corner-bl"></span>
+        <span class="corner-ornament corner-br"></span>
+
+        <div class="flex items-center justify-center gap-3 opacity-85">
+          <span class="w-12 h-[1px] bg-gradient-to-r from-transparent to-gold/70"></span>
+          <span class="text-gold text-xs">✦</span>
+          <span class="w-12 h-[1px] bg-gradient-to-l from-transparent to-gold/70"></span>
         </div>
 
-        <p class="font-serif text-2xl sm:text-3xl md:text-[2.15rem] leading-[1.52] text-gray-100 font-normal">
-          En este nuevo horizonte, las comunidades que hoy florecen desde el <span class="text-gold-light">código programable</span> y el <span class="text-gold-light">respaldo criptográfico</span> nos devuelven una certeza antigua y luminosa: que el verdadero valor jamás se decreta desde la distancia, sino que brota de la entrega honesta, la sabiduría compartida y la reciprocidad entre seres humanos. Así, cada <span class="text-gold-light">moneda digital</span> y cada <span class="text-gold-light">token</span> —esas pequeñas semillas digitales de confianza que representan un fruto, un saber o un compromiso dentro de una comunidad— guardan el latido de esa colaboración y encuentran abrigo en nuestra propia <span class="text-gold-light">wallet</span> <em class="text-gray-300 text-xl sm:text-2xl">(billetera digital)</em>: un espacio íntimo y nuestro donde cuidamos, con manos propias y dignidad, las horas de vida que hemos convertido en trabajo y entrega. Todo ello descansa sobre la <span class="text-gold-light">blockchain</span> <em class="text-gray-300 text-xl sm:text-2xl">(cadena de bloques)</em> —una memoria común y transparente que nos pertenece a todos y que nadie puede borrar ni alterar en silencio— y se honra mediante <span class="text-gold-light">contratos inteligentes</span>: compromisos claros que cumplen lo acordado con limpieza, devolviéndonos aquella entrañable certeza de que nuestra palabra vale.
+        <p class="font-serif text-2xl sm:text-3xl md:text-[2.18rem] leading-[1.56] text-gray-100 font-normal">
+          En este nuevo horizonte, las comunidades que hoy florecen desde el <span class="mystic-term">código programable</span> y el <span class="mystic-term">respaldo criptográfico</span> nos devuelven una certeza antigua y luminosa: que el verdadero valor jamás se decreta desde la distancia, sino que brota de la entrega honesta, la sabiduría compartida y la reciprocidad entre seres humanos. Así, cada <span class="mystic-term">moneda digital</span> y cada <span class="mystic-term">token</span> —esas pequeñas <span class="emerald-whisper">semillas digitales de confianza</span> que representan un fruto, un saber o un compromiso dentro de una comunidad— guardan el latido de esa colaboración y encuentran abrigo en nuestra propia <span class="mystic-term">wallet</span> <em class="text-gold-light/80 text-xl sm:text-2xl">(billetera digital)</em>: un espacio íntimo y nuestro donde cuidamos, con manos propias y dignidad, las horas de vida que hemos convertido en trabajo y entrega. Todo ello descansa sobre la <span class="mystic-term">blockchain</span> <em class="text-gold-light/80 text-xl sm:text-2xl">(cadena de bloques)</em> —una memoria común y transparente que nos pertenece a todos y que nadie puede borrar ni alterar en silencio— y se honra mediante <span class="mystic-term">contratos inteligentes</span>: compromisos claros que cumplen lo acordado con limpieza, devolviéndonos aquella entrañable certeza de que <span class="shimmer-gold italic font-medium">nuestra palabra vale</span>.
         </p>
       </div>
 
-      <div class="reveal-passage meditation-veil rounded-3xl py-10 px-4 sm:px-8 space-y-8">
-        <div class="space-y-2">
-          <p class="text-[11px] uppercase tracking-[0.34em] text-gold/80 font-light">
+      <div class="reveal-passage sacred-card rounded-3xl py-11 px-4 sm:px-9 space-y-8">
+        <span class="corner-ornament corner-tl"></span>
+        <span class="corner-ornament corner-tr"></span>
+        <span class="corner-ornament corner-bl"></span>
+        <span class="corner-ornament corner-br"></span>
+
+        <div class="space-y-2.5">
+          <p class="font-display text-xs sm:text-sm uppercase tracking-[0.28em] shimmer-gold">
             Contemplación del Holón Comunitario
           </p>
           <p class="font-serif italic text-lg sm:text-xl text-gray-300/90">
@@ -220,56 +344,58 @@
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-          <button type="button" onclick="focusHolon('todo', this)" class="holon-pill active px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/60 text-xs tracking-wider text-gray-300 hover:border-gold/60">
+          <button type="button" onclick="focusHolon('todo', this)" class="holon-pill active px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/70 text-xs tracking-wider text-gray-300 hover:border-gold/60">
             El Holón Completo
           </button>
-          <button type="button" onclick="focusHolon('centro', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/60 text-xs tracking-wider text-gray-300 hover:border-gold/60">
+          <button type="button" onclick="focusHolon('centro', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/70 text-xs tracking-wider text-gray-300 hover:border-gold/60">
             Red de Confianza
           </button>
-          <button type="button" onclick="focusHolon('norte', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/60 text-xs tracking-wider text-gray-300 hover:border-gold/60">
+          <button type="button" onclick="focusHolon('norte', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/70 text-xs tracking-wider text-gray-300 hover:border-gold/60">
             Gobernanza
           </button>
-          <button type="button" onclick="focusHolon('oeste', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/60 text-xs tracking-wider text-gray-300 hover:border-gold/60">
+          <button type="button" onclick="focusHolon('oeste', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/70 text-xs tracking-wider text-gray-300 hover:border-gold/60">
             Ahorro Familiar
           </button>
-          <button type="button" onclick="focusHolon('este', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/60 text-xs tracking-wider text-gray-300 hover:border-gold/60">
+          <button type="button" onclick="focusHolon('este', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/70 text-xs tracking-wider text-gray-300 hover:border-gold/60">
             Comercio y Tokens
-          </button>
-          <button type="button" onclick="focusHolon('sur', this)" class="holon-pill px-3.5 py-1.5 rounded-full border border-gold/30 bg-void/60 text-xs tracking-wider text-gray-300 hover:border-gold/60">
-            Tequio Digital
           </button>
         </div>
 
         <div class="relative max-w-xl mx-auto">
-          <div onclick="openHolonModal()" title="Clic para contemplar en pantalla completa" class="holon-frame relative aspect-square w-full rounded-2xl overflow-hidden border border-gold/35 bg-obsidian cursor-zoom-in group">
+          <div onclick="openHolonModal()" title="Clic para contemplar en pantalla completa" class="holon-frame relative aspect-square w-full rounded-2xl overflow-hidden border border-gold/40 bg-obsidian cursor-zoom-in group">
             <img
               id="holon-image"
               src="hol%C3%B3n.jfif"
               onerror="this.onerror=null; this.src='holón.jfif';"
-              alt="Códice del Holón: Red de Confianza, Contratos Inteligentes, Billetera Digital, Tokenización de Activos y Tequio Digital"
+              alt="Códice del Holón: Red de Confianza, Contratos Inteligentes, Billetera Digital y Tokenización de Activos"
               class="w-full h-full object-cover"
             />
-            <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold/25 rounded-2xl bg-gradient-to-t from-void/45 via-transparent to-void/20"></div>
-            <span class="pointer-events-none absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-void/75 backdrop-blur-sm border border-gold/30 text-[10px] tracking-widest uppercase text-gold-light/85 opacity-80 group-hover:opacity-100 transition-opacity">
+            <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold/30 rounded-2xl bg-gradient-to-t from-void/45 via-transparent to-void/20"></div>
+            <span class="pointer-events-none absolute bottom-3 right-3 px-3 py-1 rounded-full bg-void/80 backdrop-blur-sm border border-gold/35 text-[10px] tracking-widest uppercase text-gold-light/90 opacity-85 group-hover:opacity-100 transition-opacity">
               Ampliar códice
             </span>
           </div>
         </div>
 
-        <p id="holon-caption" class="font-serif italic text-xl sm:text-2xl text-gold-light/95 max-w-xl mx-auto leading-relaxed min-h-[3.5rem] transition-opacity duration-500">
+        <p id="holon-caption" class="font-serif italic text-xl sm:text-2xl text-gold-light max-w-xl mx-auto leading-relaxed min-h-[3.5rem] transition-opacity duration-500 gold-glow-text">
           “Cada hogar, cada oficio y cada acuerdo es una totalidad íntegra que, al enlazarse en reciprocidad, da vida al equilibrio de toda la comunidad.”
         </p>
       </div>
 
-      <div class="reveal-passage meditation-veil rounded-3xl py-10 px-4 sm:px-10 space-y-7">
-        <div class="flex items-center justify-center gap-3 opacity-70">
-          <span class="w-8 h-[1px] bg-gradient-to-r from-transparent to-gold/60"></span>
-          <span class="w-1.5 h-1.5 rotate-45 border border-gold"></span>
-          <span class="w-8 h-[1px] bg-gradient-to-l from-transparent to-gold/60"></span>
+      <div class="reveal-passage sacred-card rounded-3xl py-11 px-5 sm:px-12 space-y-8">
+        <span class="corner-ornament corner-tl"></span>
+        <span class="corner-ornament corner-tr"></span>
+        <span class="corner-ornament corner-bl"></span>
+        <span class="corner-ornament corner-br"></span>
+
+        <div class="flex items-center justify-center gap-3 opacity-85">
+          <span class="w-12 h-[1px] bg-gradient-to-r from-transparent to-gold/70"></span>
+          <span class="text-gold text-xs">✦</span>
+          <span class="w-12 h-[1px] bg-gradient-to-l from-transparent to-gold/70"></span>
         </div>
 
-        <p class="font-serif text-2xl sm:text-3xl md:text-[2.2rem] leading-[1.52] text-gray-100 font-normal">
-          Qué conmovedor es regresar, en lo más hondo de la memoria, a aquella <span class="text-gold-light">mirada primera de la infancia</span> que se detenía sin prisa a contemplar el dibujo secreto de una semilla o el trazo de la lluvia sobre la tierra, y reconciliar esa ternura intacta con el <span class="text-gold-light">alma serena del adulto</span> que hoy elige caminar su historia con verdad, gratitud y fraternidad.
+        <p class="font-serif text-2xl sm:text-3xl md:text-[2.25rem] leading-[1.54] text-gray-100 font-normal">
+          Qué conmovedor es regresar, en lo más hondo de la memoria, a aquella <span class="shimmer-gold italic font-medium">mirada primera de la infancia</span> que se detenía sin prisa a contemplar el dibujo secreto de una semilla o el trazo de la lluvia sobre la tierra, y reconciliar esa ternura intacta con el <span class="emerald-whisper italic">alma serena del adulto</span> que hoy elige caminar su historia con verdad, gratitud y fraternidad.
         </p>
       </div>
 
@@ -277,17 +403,21 @@
 
     <footer class="min-h-[75vh] flex flex-col items-center justify-center pb-24 pt-8">
       <div class="reveal-passage space-y-12">
-        <div class="w-20 h-[1px] bg-gradient-to-r from-transparent via-gold/70 to-transparent mx-auto"></div>
+        <div class="flex items-center justify-center gap-4">
+          <span class="w-16 h-[1px] bg-gradient-to-r from-transparent to-gold/80"></span>
+          <span class="text-gold-light text-sm">❖</span>
+          <span class="w-16 h-[1px] bg-gradient-to-l from-transparent to-gold/80"></span>
+        </div>
 
-        <p class="font-serif italic text-2xl sm:text-4xl md:text-[2.65rem] text-white leading-[1.38] gold-glow-text">
-          “Porque la verdadera libertad nunca nos llega como un permiso desde afuera; vuelve a nosotros como un abrazo antiguo de la memoria, en el instante sereno en que recordamos cuánto valen nuestras horas de vida, la nobleza de nuestra palabra dada y la luz silenciosa que siempre habitó en nuestro interior.”
+        <p class="font-serif italic text-2xl sm:text-4xl md:text-[2.7rem] text-white leading-[1.4] gold-glow-text">
+          “Porque la <span class="shimmer-gold not-italic font-medium">verdadera libertad</span> nunca nos llega como un permiso desde afuera; vuelve a nosotros como un abrazo antiguo de la memoria, en el instante sereno en que recordamos cuánto valen nuestras horas de vida, la nobleza de nuestra palabra dada y la <span class="text-gold-light">luz silenciosa</span> que siempre habitó en nuestro interior.”
         </p>
 
-        <div class="pt-14 space-y-2.5">
-          <p class="text-xs tracking-[0.34em] uppercase text-gold/80 font-normal">
+        <div class="pt-14 flex flex-col items-center space-y-3">
+          <p class="font-display text-xs sm:text-sm tracking-[0.28em] uppercase shimmer-gold">
             Una reflexión desde la semilla de ANEFF
           </p>
-          <p class="text-[11px] tracking-[0.22em] uppercase text-gray-500 font-light">
+          <p class="text-[11px] tracking-[0.26em] uppercase text-gray-400 font-light">
             Cultura Fractal &bull; Soberanía de la Conciencia &bull; México
           </p>
         </div>
@@ -331,10 +461,6 @@
       este: {
         transform: 'scale(1.75) translate(-25%, -2%)',
         caption: '“Tokenización de Activos (Comercio): los frutos de la tierra y el oficio representados como semillas digitales de confianza mutua.”'
-      },
-      sur: {
-        transform: 'scale(1.75) translate(0%, -26%)',
-        caption: '“Trabajo Comunitario (Tequio Digital): manos unidas cuidando el agua y el bien común, donde el esfuerzo de cada uno sostiene al todo.”'
       }
     };
 
